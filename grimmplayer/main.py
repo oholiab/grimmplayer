@@ -7,12 +7,22 @@ def main():
     lastButtonState = buttons.poll()
     heldfor = 0
     pressStart = None
+    debounceStart = None
+    debounceCounter = 0
     while True:
         buttonState = buttons.poll()
         for i in range(0, len(buttons.inputs)):
             # lt as pull-down
+            if debounceStart is not None:
+                debounceCounter = time.time() - debounceStart
+                if debounceCounter < 0.5:
+                    continue
+                else:
+                    debounceStart = None
+                    debounceCounter = 0
             if buttonState[i] < lastButtonState[i]:
                 pressStart = time.time()
+                debounceStart = time.time()
                 control.togglePlay()
                 print("PUSHY BUTTON")
             elif buttonState[i] > lastButtonState[i]:
