@@ -10,6 +10,7 @@ def main():
     debounceStart = None
     debounceCounter = 0
     while True:
+        time.sleep(0.05)
         buttonState = buttons.poll()
         for i in range(0, len(buttons.inputs)):
             # lt as pull-down
