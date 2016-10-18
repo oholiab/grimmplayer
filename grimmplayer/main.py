@@ -15,7 +15,7 @@ def main():
             # lt as pull-down
             if debounceStart is not None:
                 debounceCounter = time.time() - debounceStart
-                if debounceCounter < 0.5:
+                if debounceCounter < 0.3:
                     continue
                 else:
                     debounceStart = None
