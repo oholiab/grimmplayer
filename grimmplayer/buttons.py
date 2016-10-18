@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 outputs = []
-inputs = [2]
+inputs = [26]
 
 def initialize():
     GPIO.setmode(GPIO.BCM)

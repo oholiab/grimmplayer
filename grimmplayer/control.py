@@ -17,3 +17,7 @@ def togglePlay():
             client.pause()
         else:
             client.play()
+
+def skip():
+    with connection() as client:
+        client.next()
