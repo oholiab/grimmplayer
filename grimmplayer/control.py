@@ -5,7 +5,7 @@ from contextlib import contextmanager
 def connection():
     try:
         client = mpd.MPDClient(use_unicode=True)
-        client.connect('127.0.0.1', 6600)
+        client.connect('localhost', 6600)
         yield client
     finally:
         client.close()
