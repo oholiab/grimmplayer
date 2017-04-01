@@ -2,6 +2,19 @@ from grimmplayer import buttons
 from grimmplayer import control
 import time
 
+def noop():
+    pass
+
+def control_map(button):
+    switcher = {
+            buttons.BIG: control.togglePlay,
+            buttons.LEFT: noop,
+            buttons.RIGHT: control.skip,
+            buttons.UP: noop,
+            buttons.DOWN: noop,
+            }
+    return switcher[button]()
+
 def main():
     buttons.initialize()
     lastButtonState = buttons.poll()
@@ -24,7 +37,7 @@ def main():
             if buttonState[i] < lastButtonState[i]:
                 pressStart = time.time()
                 debounceStart = time.time()
-                control.togglePlay()
+                control_map(i)
                 print("PUSHY BUTTON")
             elif buttonState[i] > lastButtonState[i]:
                 pressStart = None
@@ -36,7 +49,6 @@ def main():
                 pressStart = None
                 control.skip()
         lastButtonState = buttonState
-
 
 if __name__ == "__main__":
     main()

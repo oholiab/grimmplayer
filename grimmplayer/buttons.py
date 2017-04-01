@@ -1,13 +1,20 @@
 import RPi.GPIO as GPIO
 
-BIG = 26
-RIGHT = 16
-LEFT = 5
-UP = 6
-DOWN = 13
+BIG_PIN = 26
+RIGHT_PIN = 16
+LEFT_PIN = 5
+UP_PIN = 6
+DOWN_PIN = 13
+
+# Map the buttons to named indexes for use everywhere else
+BIG = 0
+RIGHT = 1
+LEFT = 2
+UP = 3
+DOWN = 4
 
 outputs = []
-inputs = [BIG, RIGHT, LEFT, UP, DOWN]
+inputs = [BIG_PIN, RIGHT_PIN, LEFT_PIN, UP_PIN, DOWN_PIN]
 
 def initialize():
     GPIO.setmode(GPIO.BCM)
