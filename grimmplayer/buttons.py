@@ -1,7 +1,13 @@
 import RPi.GPIO as GPIO
 
+BIG = 26
+RIGHT = 16
+LEFT = 5
+UP = 6
+DOWN = 13
+
 outputs = []
-inputs = [26]
+inputs = [BIG, RIGHT, LEFT, UP, DOWN]
 
 def initialize():
     GPIO.setmode(GPIO.BCM)
