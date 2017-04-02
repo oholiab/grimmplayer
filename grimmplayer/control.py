@@ -13,6 +13,9 @@ def connection():
         client.close()
         client.disconnect()
 
+def getvol(client):
+    return int(client.status()["volume"])
+
 def togglePlay():
     with connection() as client:
         if client.status()['state'] == 'play':
@@ -27,3 +30,19 @@ def skip():
 def previous():
     with connection() as client:
         client.previous()
+
+def vol_inc(increment):
+    with connection() as client:
+        volume = getvol(client)
+        newvol = volume + increment
+        if newvol > 100:
+            newvol = 100
+        elif newvol < 0:
+            newvol = 0
+        client.setvol(newvol)
+
+def vol_up():
+    vol_inc(inc)
+
+def vol_down():
+    vol_inc(-inc)

@@ -10,8 +10,8 @@ def control_map(button):
             buttons.BIG: control.togglePlay,
             buttons.LEFT: control.previous,
             buttons.RIGHT: control.skip,
-            buttons.UP: noop,
-            buttons.DOWN: noop,
+            buttons.UP: control.vol_up,
+            buttons.DOWN: control.vol_down,
             }
     return switcher[button]()
 
