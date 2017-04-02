@@ -1,6 +1,8 @@
 import mpd
 from contextlib import contextmanager
 
+inc = 5
+
 @contextmanager
 def connection():
     try:
@@ -21,3 +23,7 @@ def togglePlay():
 def skip():
     with connection() as client:
         client.next()
+
+def previous():
+    with connection() as client:
+        client.previous()

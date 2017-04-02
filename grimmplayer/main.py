@@ -8,7 +8,7 @@ def noop():
 def control_map(button):
     switcher = {
             buttons.BIG: control.togglePlay,
-            buttons.LEFT: noop,
+            buttons.LEFT: control.previous,
             buttons.RIGHT: control.skip,
             buttons.UP: noop,
             buttons.DOWN: noop,
